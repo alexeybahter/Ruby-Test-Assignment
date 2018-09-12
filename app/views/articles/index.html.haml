@@ -1,0 +1,10 @@
+.center-content
+  %h1 Listing articles
+  - @articles.each do |article|
+    .row.justify-content-center
+      .col-md-6
+        .card.mb-3
+          .card-header.card-title.h3= article.title
+          .card-body
+            .card-text.mb-4= article.text
+            = link_to 'Show more', article_path(article), class: 'btn btn-primary'

@@ -1,0 +1,27 @@
+.row.justify-content-center
+  .col-md-6
+    %h2 Sign up11
+    = form_for(resource, as: resource_name, url: new_user_registration_path, :html => {:multipart => true}) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+      .form-group
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+      .form-group
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+      .form-group
+        = f.label :avatar
+        %br/
+        = f.file_field :avatar
+        = f.hidden_field :avatar_cache
+      .actions
+        = f.submit "Sign up", class: 'btn btn-primary'

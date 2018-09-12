@@ -1,0 +1,5 @@
+= form_with(model: [ @article, @article.comments.build() ], local: true, class: '') do |form|
+  .form-group
+    = form.text_area :body, size: '50x5'
+  %div
+    = form.submit class: 'btn btn-success mb-1'

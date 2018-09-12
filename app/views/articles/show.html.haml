@@ -1,0 +1,21 @@
+.row.justify-content-center
+  .col-md-6
+    %div
+      .h3
+        Title: #{@article.title}
+      .mb-3
+        %div
+          Text: #{@article.text}
+        Author: #{link_to @user.email, user_path(@article.user_id), class: ''}
+    - if current_user == @user
+      = link_to 'Edit', edit_article_path(@article), class: 'btn btn-warning'
+      = link_to 'Delete', article_path(@article), |
+        method: :delete,                          |
+        class: 'btn btn-danger'                   |
+    .mt-4
+      .h3 Comments
+      = render @article.comments
+      - if signed_in?
+        .h5 Add a comment:
+        = render 'comments/form'
+      = link_to 'Back', articles_path
