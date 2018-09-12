@@ -22,6 +22,6 @@ Login: guest
 Password: guest
 
 Start the worker
-* WORKERS=PostsWorker rake sneakers:run
+* WORKERS=CommentsWorker rake sneakers:run
 
 
